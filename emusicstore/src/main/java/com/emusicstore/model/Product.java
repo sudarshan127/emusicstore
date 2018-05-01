@@ -71,12 +71,7 @@ public class Product implements Serializable{
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	public String getOverview() {
-		return overview;
-	}
-	public void setOverview(String overview) {
-		this.overview = overview;
-	}
+	
 	public String getAuthorName() {
 		return authorName;
 	}

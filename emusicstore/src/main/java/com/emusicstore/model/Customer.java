@@ -12,6 +12,8 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,20 +27,28 @@ public class Customer implements Serializable{
 	@GeneratedValue
 	private int customerId;
 	
-	@NotNull (message = "Customer Name Must Not be Empty")
+	
+	@Pattern(regexp="[a-zA-Z]*", message = "Only Character Accepted!!")
 	private String customerName;
 	
-	@Email(message="Please provide a valid email address")
-	@Pattern(regexp=".+@.+\\..+", message="Please provide a valid email address")
+	@Email
+	@Pattern(regexp=".+@.+\\..+", message = "Invalid Email Pattern")
 	private String customerEmail;
 	
+	@Pattern(regexp="[\\d]{10}", message = "Only 10 Numbers Accepted")
 	private String customerPhone;
 	
-	@NotNull (message = "Username Must Not be Empty")
+	@NotBlank
 	private String username;
 	
-	@NotNull (message = "Password Must Not be Empty and should be greater than 6 characters")
+	
 	@Size(min=6, max=20)
+	@Pattern.List({
+        @Pattern(regexp = "(?=.*[0-9]).+", message = "Password must contain one digit."),
+        @Pattern(regexp = "(?=.*[a-z]).+", message = "Password must contain one lowercase letter."),
+        @Pattern(regexp = "(?=.*[A-Z]).+", message = "Password must contain one upper letter."),
+        @Pattern(regexp = "(?=.*[!@#$%^&*+=?-_()/\"\\.,<>~`;:]).+", message ="Password must contain one special character."),
+        @Pattern(regexp = "(?=\\S+$).+", message = "Password must contain no whitespace.")})
 	private String password;
 	
 	private boolean enabled;

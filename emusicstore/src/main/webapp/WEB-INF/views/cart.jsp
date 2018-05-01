@@ -34,7 +34,7 @@
 			</div>
 		
 			<table class ="table table-hover">
-				<tr>
+			<!--	<tr>
 					<th>Product</th>
 					<th>Unit Price</th>
 					<th>Quantity</th>
@@ -42,11 +42,27 @@
 					<th>Action</th>
 				</tr>
 				
-				<tr data-ng-repeat = "item in cart">
+				 <tr data-ng-repeat = "item in cart">
 					<td>{{item.product.name}}</td>
 					<td>{{item.product.price}}</td>
 					<td>{{item.quantity}}</td>
 					<td>{{item.totalPrice}}</td>
+					<td><a href="#" class="label label-danger" data-ng-click="removeFromCart(product.id)">
+						<span class="fa fa-trash"></span>remove</a></td>
+						
+						
+				</tr> -->
+				<tr>
+					<th>Product</th>
+					<th>Unit Price</th>
+					<th>Quantity</th>
+					
+				</tr>
+				<tr >
+					<td>${name}</td>
+					<td>${price}</td>
+					<td>${quant}</td>
+					
 					<td><a href="#" class="label label-danger" data-ng-click="removeFromCart(product.id)">
 						<span class="fa fa-trash"></span>remove</a></td>
 						

@@ -62,7 +62,7 @@ public class RegisterController {
 				return "registerCustomer";
 			}
 			if(customer.getPassword().isEmpty()) {
-				model.addAttribute("passwordMsg", "Password Must be between 6 to 20 ");
+				model.addAttribute("passwordMsg", "Password Must be between 6 and 20 ");
 				
 				return "registerCustomer";
 			}

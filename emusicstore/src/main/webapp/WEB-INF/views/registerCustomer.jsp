@@ -6,7 +6,17 @@
     <html>
     	<title>Register</title>
     </html>
-    
+<!--     <script>
+function validateForm() {
+	var text;
+    var x = document.getElementById("name").value;
+    if (x == null || x == "") {
+        text = ("Name must be filled out");
+        
+    }
+    document.getElementById("demo").innerHTML = text;
+}
+</script> -->
  <div class="container-wrapper">
 	<div class="container"> 
 		<div class = "page-header">
@@ -16,7 +26,7 @@
 			
 		</div>
 	
-	<form:form action="${pageContext.request.contextPath}/register" method ="POST" modelAttribute="customer" > <!-- we can use modelAttribute instead of commandName -->
+	<form:form action="${pageContext.request.contextPath}/register"   method ="POST" modelAttribute="customer" > <!-- we can use modelAttribute instead of commandName -->
 			
 			<h3>Basic Information</h3>
 			
@@ -25,24 +35,25 @@
 			<div class="form-group">
 				<label for="name">Name:</label> <form:errors path="customerName" style="color: red" />
 				<br>
-				<form:input path="customerName" id="name" class="form-Control" placeholder="Full Name" name = "name"/>
+				<form:input path="customerName" class="form-Control" placeholder="Full Name" name = "name"/>
+				<p id="demo"></p>
 			</div>
 		</div>
 		
 		<div class="form-group col-md-6">	
 			<div class="form-group">
-				<label for="email">Email:</label> <span style="color: red">${emailMsg}</span>
+				<label for="email">Email:</label> <span >${emailMsg}</span>
 													<form:errors path="customerEmail" style="color: red" />
 				<br>
-				<form:input path="customerEmail" id="email" class="form-Control" placeholder="email@example.com" name = "email"/>
+				<form:input path="customerEmail" class="form-Control" placeholder="email@example.com" name = "email"/>
 			</div>
 		</div>
 		
 		<div class="form-group col-md-4">	
 			<div class="form-group">
-				<label for="phone">Phone Number:</label>
+				<label for="phone">Phone Number:</label> <form:errors path="customerPhone" style="color: red" />
 				<br>
-				<form:input path="customerPhone" id="phone" class="form-Control" placeholder="Phone Number"/>
+				<form:input path="customerPhone"  placeholder="Phone Number"/>
 			</div>
 		</div>
 		
@@ -51,16 +62,17 @@
 				<label for="username">User Name:</label> <span style="color: red">${usernameMsg}</span>
 													<form:errors path="username" style="color: red" />
 				<br>
-				<form:input path="username" id="username" class="form-Control" placeholder="Your Username"/>
+				<form:input path="username" class="form-Control" placeholder="Your Username"/>
 			</div>
 		</div>
 		
 		<div class="form-group col-md-6">	
 			<div class="form-group">
 				<label for="password">Password:</label> 	<span style="color: red">${passwordMsg}</span>
-															<form:errors path="password" style="color: red" />
+				<form:errors path="password" style="color: red" />
+															
 				<br>
-				<form:password path="password" id="password" class="form-Control" placeholder="Your password"/>
+				<form:password path="password"  id="password" class="form-Control" placeholder="Your password"/>
 			</div>
 		</div>	
 		
